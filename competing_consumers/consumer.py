@@ -25,8 +25,6 @@ channel.basic_consume(
     on_message_callback=on_message_received
 )
 
-# message = channel.basic_get(queue='testName', auto_ack=True)
-# print(message)
 
 print('Starting Consuming')
 channel.start_consuming()
