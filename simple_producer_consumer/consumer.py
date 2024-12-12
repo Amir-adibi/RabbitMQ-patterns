@@ -1,6 +1,9 @@
 import pika
+from pika.adapters.blocking_connection import BlockingChannel
+from pika.spec import Basic, BasicProperties
 
-def on_message_received(ch, method, properties, body):
+
+def on_message_received(ch: BlockingChannel, method: Basic.Deliver, properties: BasicProperties, body: bytes):
     print(f"received new message: {body}")
 
 connection_parameters = pika.ConnectionParameters(host='localhost', port=5672)
